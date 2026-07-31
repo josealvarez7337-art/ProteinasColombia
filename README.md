@@ -10,6 +10,7 @@ Bienvenida y Reglamento Oficial. Versión final aprobada por el cliente
 |---|---|
 | `web/index.html` | Kit de Bienvenida (página principal): generador de código de embajador, botones de WhatsApp e Instagram y enlace al reglamento. |
 | `web/reglamento.html` | Reglamento Oficial: las 12 reglas desplegables con contador de lectura, contacto y enlace de regreso al kit. |
+| `web/catalogo.pdf` | Catálogo de productos de la tienda (9 páginas). Se publica junto al sitio; el botón «Catálogo de productos» del cierre del Kit lo abre. |
 
 Ambas páginas son estáticas y 100 % autocontenidas (fuentes incrustadas,
 sin dependencias externas). Incluyen `noindex` para no aparecer en
