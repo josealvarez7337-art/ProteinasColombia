@@ -26,6 +26,13 @@ buscadores, `viewport` para móvil y favicon propio.
 Para actualizar (cambio de reglas, comisiones, etc.): editar el archivo
 correspondiente y volver a arrastrar la carpeta — el link no cambia.
 
+## Marca
+
+| Archivo | Qué es |
+|---|---|
+| `brand/logo-original.jpg` | Logo tal como lo entregó la tienda (JPEG con fondo oscuro). |
+| `brand/logo-master-2x.png` | Máster reconstruido: fondo transparente, blanco puro sin ruido de compresión, 1878×400. Es la versión incrustada en las páginas y la que debe usarse en piezas futuras. |
+
 ## Acuerdo de mantenimiento
 
 Actualizaciones de contenido se cobran por ronda de cambios, con entrega
