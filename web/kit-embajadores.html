@@ -25,15 +25,10 @@
 :root[data-theme="light"],:root[data-theme="dark"]{color-scheme:dark}
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
   margin:0;background:var(--bg);color:var(--paper);
   font-family:var(--body);font-size:17px;line-height:1.6;
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
 }
 
 /* ---------- utilidades de marca ---------- */
@@ -70,22 +65,15 @@ section.flush{border-top:none}
   position:relative;display:flex;align-items:center;justify-content:center;
   border:1px dashed var(--line-2);color:var(--muted);
   font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-  background:
-    repeating-linear-gradient(115deg,transparent 0 22px,rgba(96,146,255,.05) 22px 23px),
-    linear-gradient(160deg,#0A1322,#070D1A);
+  background:var(--panel);
   min-height:150px;text-align:center;padding:12px;
 }
 
-/* revelado al hacer scroll */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
-.rv.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
 
 /* ---------- barra de progreso + encabezado ---------- */
-#prog{position:fixed;top:0;left:0;height:3px;width:0;background:var(--blue);z-index:60}
 header.top{
   position:sticky;top:0;z-index:50;
-  background:rgba(6,11,21,.86);backdrop-filter:blur(10px);
+  background:var(--bg);
   border-bottom:1px solid var(--line);
 }
 header.top .bar{
@@ -104,7 +92,7 @@ nav.caps{display:flex;gap:8px}
 nav.caps a{
   font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
   color:var(--muted);text-decoration:none;padding:7px 11px;border:1px solid var(--line);
-  transition:color .2s,border-color .2s;white-space:nowrap;
+  white-space:nowrap;
 }
 nav.caps a:hover,nav.caps a:focus-visible{color:var(--paper);border-color:var(--blue)}
 a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--blue-hi);outline-offset:2px}
@@ -113,17 +101,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 .hero{
   min-height:88svh;display:flex;flex-direction:column;justify-content:center;
   padding:70px 0 60px;position:relative;overflow:hidden;
-  background:
-    radial-gradient(90% 60% at 85% 0%,rgba(61,123,255,.14),transparent 60%),
-    linear-gradient(160deg,#081124 0%,var(--bg) 55%);
 }
-.hero::before,.hero::after{
-  content:"";position:absolute;top:-20%;bottom:-20%;width:1px;
-  background:linear-gradient(180deg,transparent,rgba(96,146,255,.5),transparent);
-  transform:rotate(24deg);pointer-events:none;
-}
-.hero::before{right:18%}
-.hero::after{right:34%;opacity:.4}
 .hero .chip{
   display:inline-block;border:1px solid var(--paper);padding:9px 16px;
   font-size:13px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
@@ -132,18 +110,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 .hero h1{font-size:clamp(64px,19vw,150px)}
 .hero .tag{margin:34px 0 0;font-size:15px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;line-height:2}
 .hero .tag .b{color:var(--blue)}
-.hero .foto{position:absolute;right:-40px;bottom:38px;width:200px;min-height:96px;opacity:.55;transform:rotate(0deg)}
-@media (max-width:560px){.hero .foto{display:none}}
-.hload{opacity:0;transform:translateY(22px);animation:hup .8s ease forwards}
-@keyframes hup{to{opacity:1;transform:none}}
-.hload.d1{animation-delay:.05s}.hload.d2{animation-delay:.2s}.hload.d3{animation-delay:.38s}.hload.d4{animation-delay:.56s}
-.scrollcue{
-  position:absolute;left:24px;bottom:22px;font-size:11px;font-weight:700;
-  letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
-  display:flex;align-items:center;gap:10px;
-}
-.scrollcue::after{content:"";width:1px;height:34px;background:var(--blue);animation:drop 1.6s ease-in-out infinite}
-@keyframes drop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
 /* ---------- valores / chips ---------- */
 .vals{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:34px 0 0}
@@ -180,7 +146,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 
 /* ---------- tu código: demo interactiva ---------- */
 .codelab{
-  border:1px solid var(--line-2);background:linear-gradient(160deg,var(--panel-2),var(--panel));
+  border:1px solid var(--line-2);background:var(--panel);
   padding:34px 26px;margin:40px 0 0;position:relative;overflow:hidden;
 }
 .codelab::after{
@@ -196,15 +162,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 .codelab input::placeholder{color:#4A5872;text-transform:none;letter-spacing:0}
 .bigcode{
   margin:26px 0 0;text-align:center;border:1px dashed var(--line-2);padding:26px 10px 22px;
-  background:
-    radial-gradient(60% 100% at 50% 0%,rgba(61,123,255,.12),transparent 70%),
-    var(--bg);
+  background:var(--bg);
 }
 .bigcode .c{
   font-family:var(--display);font-size:clamp(46px,13vw,72px);line-height:1;
-  transform:skewX(-6deg);display:inline-block;
-  background:linear-gradient(100deg,var(--paper) 30%,var(--blue-hi) 70%);
-  -webkit-background-clip:text;background-clip:text;color:transparent;
+  transform:skewX(-6deg);display:inline-block;color:var(--paper);
 }
 .bigcode small{display:block;margin:12px 0 0;color:var(--muted);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700}
 .codelab .note{margin:18px 0 0;font-size:13px;color:var(--muted)}
@@ -230,7 +192,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 
 /* ---------- puente al reglamento ---------- */
 .bridge{
-  background:linear-gradient(160deg,#0A1428,var(--bg));text-align:left;
+  background:#081020;text-align:left;
   border-top:1px solid var(--line);
 }
 .bridge .big{font-size:clamp(40px,10vw,72px)}
@@ -254,7 +216,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 }
 .rulesmeta .count{color:var(--blue-hi);font-variant-numeric:tabular-nums}
 .rulebar{height:3px;background:var(--line);margin:0 0 22px;position:relative}
-.rulebar i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--blue);transition:width .4s ease}
+.rulebar i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--blue)}
 
 .rules{display:grid;gap:10px}
 details.rule{border:1px solid var(--line);background:var(--panel)}
@@ -270,7 +232,7 @@ details.rule summary::-webkit-details-marker{display:none}
 }
 .rule.leida .n{color:var(--muted)}
 .rule h3{font-size:15px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;flex:1}
-.rule summary::after{content:"+";font-family:var(--display);color:var(--blue-hi);font-size:20px;transition:transform .25s}
+.rule summary::after{content:"+";font-family:var(--display);color:var(--blue-hi);font-size:20px}
 details.rule[open] summary::after{transform:rotate(45deg)}
 .rule p{margin:0;padding:0 18px 18px 72px;color:var(--muted);font-size:15px}
 @media (max-width:460px){.rule p{padding-left:18px}}
@@ -284,18 +246,13 @@ details.rule[open] summary::after{transform:rotate(45deg)}
 .recuerda p{margin:0;font-size:15px;color:var(--paper)}
 
 /* ---------- cierre ---------- */
-.final{
-  text-align:left;padding:100px 0 70px;overflow:hidden;position:relative;
-  background:
-    radial-gradient(80% 55% at 15% 100%,rgba(61,123,255,.16),transparent 60%),
-    linear-gradient(200deg,var(--bg) 30%,#081124);
-}
+.final{text-align:left;padding:100px 0 70px;background:#081020}
 .final .big{font-size:clamp(44px,11vw,80px)}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin:40px 0 0}
 .btn{
   display:inline-flex;align-items:center;gap:10px;text-decoration:none;
   font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;
-  padding:16px 24px;transition:transform .2s,background .2s,color .2s;
+  padding:16px 24px;
   clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
 }
 .btn.wa{background:var(--blue);color:#fff}
@@ -313,8 +270,6 @@ footer.demo{
 footer.demo .wrap{display:grid;gap:6px}
 </style>
 
-<div id="prog" role="presentation"></div>
-
 <header class="top">
   <div class="bar">
     <a class="logo" href="#inicio" aria-label="Proteínas Colombia Team — inicio">
@@ -331,23 +286,22 @@ footer.demo .wrap{display:grid;gap:6px}
 <!-- ============ HÉROE — boceto pág. 01 ============ -->
 <section class="hero flush" id="inicio">
   <div class="wrap">
-    <p class="eyebrow hload d1"><span class="pg">01</span> Programa de embajadores</p>
-    <h1 class="display hload d2">Team</h1>
-    <span class="chip hload d3">Kit de bienvenida</span>
-    <p class="tag hload d4">Tú recomiendas.<br>Nosotros te respaldamos.<br><span class="b">Juntos crecemos.</span></p>
-    <div class="tricolor hload d4"><i></i><i></i><i></i></div>
+    <p class="eyebrow"><span class="pg">01</span> Programa de embajadores</p>
+    <h1 class="display">Team</h1>
+    <span class="chip">Kit de bienvenida</span>
+    <p class="tag">Tú recomiendas.<br>Nosotros te respaldamos.<br><span class="b">Juntos crecemos.</span></p>
+    <div class="tricolor"><i></i><i></i><i></i></div>
+    <div class="foto" style="margin-top:44px;min-height:140px">Foto — atleta entrenando</div>
   </div>
-  <div class="foto">Foto — atleta entrenando</div>
-  <span class="scrollcue">Desliza</span>
 </section>
 
 <!-- ============ BIENVENIDA — pág. 02 ============ -->
 <section id="bienvenida">
   <div class="wrap">
-    <p class="eyebrow rv"><span class="pg">02</span> El equipo</p>
-    <h2 class="display rv">Bienvenido<br><span class="b">al equipo</span></h2>
-    <p class="lede rv">Nos alegra tenerte con nosotros. Desde hoy formas parte de una comunidad que comparte una misma pasión: <strong>entrenar, crecer y superarse</strong>.</p>
-    <div class="vals rv">
+    <p class="eyebrow"><span class="pg">02</span> El equipo</p>
+    <h2 class="display">Bienvenido<br><span class="b">al equipo</span></h2>
+    <p class="lede">Nos alegra tenerte con nosotros. Desde hoy formas parte de una comunidad que comparte una misma pasión: <strong>entrenar, crecer y superarse</strong>.</p>
+    <div class="vals">
       <div class="v"><b>Comunidad</b><span>que te impulsa.</span></div>
       <div class="v"><b>Enfoque</b><span>en resultados.</span></div>
       <div class="v"><b>Crecimiento</b><span>sin límites.</span></div>
@@ -358,10 +312,10 @@ footer.demo .wrap{display:grid;gap:6px}
 <!-- ============ PRODUCTOS — pág. 03 ============ -->
 <section>
   <div class="wrap">
-    <p class="eyebrow rv"><span class="pg">03</span> Catálogo</p>
-    <h2 class="display rv">Suplementación<br>para <span class="b">cada objetivo</span></h2>
-    <p class="lede rv">Productos de calidad para impulsar <strong>tu mejor versión</strong>.</p>
-    <div class="cats rv">
+    <p class="eyebrow"><span class="pg">03</span> Catálogo</p>
+    <h2 class="display">Suplementación<br>para <span class="b">cada objetivo</span></h2>
+    <p class="lede">Productos de calidad para impulsar <strong>tu mejor versión</strong>.</p>
+    <div class="cats">
       <span>Proteínas</span><span>Creatinas</span><span>Aminos</span><span>Pre-entrenos</span>
       <span>Recuperación</span><span>Vitaminas</span><span>Quemadores</span><span>Snacks</span>
     </div>
@@ -371,25 +325,25 @@ footer.demo .wrap{display:grid;gap:6px}
 <!-- ============ COMUNIDAD — págs. 04 y 05 ============ -->
 <section>
   <div class="wrap">
-    <p class="eyebrow rv"><span class="pg">04</span> Más que un código</p>
-    <h2 class="display rv">Tu comunidad<br><span class="b">confía en ti</span></h2>
-    <p class="lede rv">Proteínas Colombia Team es una comunidad de entrenadores, atletas y personas apasionadas por el deporte que quieren crecer junto a una marca especializada en suplementación deportiva.</p>
-    <p class="lede rv">Tu experiencia, tu conocimiento y las personas que te rodean pueden convertirse en una oportunidad para <strong>generar valor y crecer juntos</strong>.</p>
-    <div class="mantra rv"><span>Inspiras</span><span>Acompañas</span><span>Transformas</span></div>
+    <p class="eyebrow"><span class="pg">04</span> Más que un código</p>
+    <h2 class="display">Tu comunidad<br><span class="b">confía en ti</span></h2>
+    <p class="lede">Proteínas Colombia Team es una comunidad de entrenadores, atletas y personas apasionadas por el deporte que quieren crecer junto a una marca especializada en suplementación deportiva.</p>
+    <p class="lede">Tu experiencia, tu conocimiento y las personas que te rodean pueden convertirse en una oportunidad para <strong>generar valor y crecer juntos</strong>.</p>
+    <div class="mantra"><span>Inspiras</span><span>Acompañas</span><span>Transformas</span></div>
   </div>
 </section>
 
 <!-- ============ CÓMO FUNCIONA — pág. 06 ============ -->
 <section>
   <div class="wrap">
-    <p class="eyebrow rv"><span class="pg">06</span> El modelo</p>
-    <h2 class="display rv">¿Cómo funciona?<br><span class="b">Así de simple.</span></h2>
+    <p class="eyebrow"><span class="pg">06</span> El modelo</p>
+    <h2 class="display">¿Cómo funciona?<br><span class="b">Así de simple.</span></h2>
     <div class="steps">
-      <div class="step rv"><span class="n">01</span><h3>Recomienda</h3><p>nuestros productos.</p></div>
-      <div class="step rv"><span class="n">02</span><h3>Comparte</h3><p>tu código personalizado.</p></div>
-      <div class="step rv"><span class="n">03</span><h3>Tu cliente</h3><p>realiza su compra.</p></div>
-      <div class="step rv"><span class="n">04</span><h3>Generas</h3><p>una venta.</p></div>
-      <div class="step rv"><span class="n">05</span><h3>Recibes</h3><p>tu comisión.</p></div>
+      <div class="step"><span class="n">01</span><h3>Recomienda</h3><p>nuestros productos.</p></div>
+      <div class="step"><span class="n">02</span><h3>Comparte</h3><p>tu código personalizado.</p></div>
+      <div class="step"><span class="n">03</span><h3>Tu cliente</h3><p>realiza su compra.</p></div>
+      <div class="step"><span class="n">04</span><h3>Generas</h3><p>una venta.</p></div>
+      <div class="step"><span class="n">05</span><h3>Recibes</h3><p>tu comisión.</p></div>
     </div>
   </div>
 </section>
@@ -397,10 +351,10 @@ footer.demo .wrap{display:grid;gap:6px}
 <!-- ============ TU CÓDIGO — pág. 07 (interactivo) ============ -->
 <section>
   <div class="wrap">
-    <p class="eyebrow rv"><span class="pg">07</span> Tu identidad</p>
-    <h2 class="display rv">Tu código.<br><span class="b">Tu identidad.</span></h2>
-    <p class="lede rv">Este es tu código personalizado. Compártelo y haz crecer tu comunidad: tus clientes podrán utilizarlo al realizar su pedido.</p>
-    <div class="codelab rv">
+    <p class="eyebrow"><span class="pg">07</span> Tu identidad</p>
+    <h2 class="display">Tu código.<br><span class="b">Tu identidad.</span></h2>
+    <p class="lede">Este es tu código personalizado. Compártelo y haz crecer tu comunidad: tus clientes podrán utilizarlo al realizar su pedido.</p>
+    <div class="codelab">
       <label for="nombre">Escribe tu nombre y mira cómo se vería tu código</label>
       <input id="nombre" type="text" maxlength="12" autocomplete="off" placeholder="Ej: Juan">
       <div class="bigcode" aria-live="polite">
@@ -415,43 +369,43 @@ footer.demo .wrap{display:grid;gap:6px}
 <!-- ============ BENEFICIOS — pág. 08 ============ -->
 <section>
   <div class="wrap">
-    <p class="eyebrow rv"><span class="pg">08</span> Respaldo</p>
-    <h2 class="display rv">Todo lo que recibes<br><span class="b">para vender más</span></h2>
+    <p class="eyebrow"><span class="pg">08</span> Respaldo</p>
+    <h2 class="display">Todo lo que recibes<br><span class="b">para vender más</span></h2>
     <div class="bens">
-      <div class="ben rv"><b>Código personalizado</b><span>Único, tuyo, listo para compartir.</span></div>
-      <div class="ben rv"><b>Catálogo de productos</b><span>Siempre actualizado.</span></div>
-      <div class="ben rv"><b>Contenido para compartir</b><span>Piezas listas para tus redes.</span></div>
-      <div class="ben rv"><b>Guías de productos</b><span>Para recomendar con criterio.</span></div>
-      <div class="ben rv"><b>Promociones exclusivas</b><span>Ventajas para tu comunidad.</span></div>
-      <div class="ben rv"><b>Acompañamiento constante</b><span>No estás solo en esto.</span></div>
+      <div class="ben"><b>Código personalizado</b><span>Único, tuyo, listo para compartir.</span></div>
+      <div class="ben"><b>Catálogo de productos</b><span>Siempre actualizado.</span></div>
+      <div class="ben"><b>Contenido para compartir</b><span>Piezas listas para tus redes.</span></div>
+      <div class="ben"><b>Guías de productos</b><span>Para recomendar con criterio.</span></div>
+      <div class="ben"><b>Promociones exclusivas</b><span>Ventajas para tu comunidad.</span></div>
+      <div class="ben"><b>Acompañamiento constante</b><span>No estás solo en esto.</span></div>
     </div>
-    <p class="lede rv" style="font-size:14px;letter-spacing:.12em;text-transform:uppercase;font-weight:700">Herramientas reales para generar <strong style="color:var(--blue-hi)">resultados reales</strong>.</p>
+    <p class="lede" style="font-size:14px;letter-spacing:.12em;text-transform:uppercase;font-weight:700">Herramientas reales para generar <strong style="color:var(--blue-hi)">resultados reales</strong>.</p>
   </div>
 </section>
 
 <!-- ============ PRIMEROS PASOS — pág. 09 ============ -->
 <section>
   <div class="wrap">
-    <p class="eyebrow rv"><span class="pg">09</span> Arranque</p>
-    <h2 class="display rv">Es hora<br><span class="b">de empezar</span></h2>
-    <p class="lede rv">Toma acción y empieza a generar <strong>tus primeras ventas</strong>.</p>
+    <p class="eyebrow"><span class="pg">09</span> Arranque</p>
+    <h2 class="display">Es hora<br><span class="b">de empezar</span></h2>
+    <p class="lede">Toma acción y empieza a generar <strong>tus primeras ventas</strong>.</p>
     <div class="starts">
-      <div class="start rv"><div class="foto">Foto — celular / catálogo</div><div class="t"><span class="n">01</span><b>Conoce el catálogo</b></div></div>
-      <div class="start rv"><div class="foto">Foto — comunidad en el gym</div><div class="t"><span class="n">02</span><b>Identifica las necesidades de tu comunidad</b></div></div>
-      <div class="start rv"><div class="foto">Foto — código en pantalla</div><div class="t"><span class="n">03</span><b>Comparte tu código</b></div></div>
-      <div class="start rv"><div class="foto">Foto — producto entregado</div><div class="t"><span class="n">04</span><b>Genera tu primera venta</b></div></div>
+      <div class="start"><div class="foto">Foto — celular / catálogo</div><div class="t"><span class="n">01</span><b>Conoce el catálogo</b></div></div>
+      <div class="start"><div class="foto">Foto — comunidad en el gym</div><div class="t"><span class="n">02</span><b>Identifica las necesidades de tu comunidad</b></div></div>
+      <div class="start"><div class="foto">Foto — código en pantalla</div><div class="t"><span class="n">03</span><b>Comparte tu código</b></div></div>
+      <div class="start"><div class="foto">Foto — producto entregado</div><div class="t"><span class="n">04</span><b>Genera tu primera venta</b></div></div>
     </div>
-    <div class="mantra rv"><span>Sé constante</span><span>Aporta valor</span><span>Ayuda a más personas</span><span>Crecemos juntos</span></div>
+    <div class="mantra"><span>Sé constante</span><span>Aporta valor</span><span>Ayuda a más personas</span><span>Crecemos juntos</span></div>
   </div>
 </section>
 
 <!-- ============ PUENTE AL REGLAMENTO ============ -->
 <section class="bridge" id="reglamento">
   <div class="wrap">
-    <p class="eyebrow rv"><span class="pg">R</span> Reglamento oficial</p>
-    <h2 class="display big rv">Las reglas<br><span class="b">del juego</span></h2>
-    <p class="lede rv">Estas reglas existen para proteger nuestra comunidad, garantizar transparencia y construir <strong>relaciones a largo plazo</strong>.</p>
-    <div class="vals rv" style="grid-template-columns:1fr 1fr">
+    <p class="eyebrow"><span class="pg">R</span> Reglamento oficial</p>
+    <h2 class="display big">Las reglas<br><span class="b">del juego</span></h2>
+    <p class="lede">Estas reglas existen para proteger nuestra comunidad, garantizar transparencia y construir <strong>relaciones a largo plazo</strong>.</p>
+    <div class="vals" style="grid-template-columns:1fr 1fr">
       <div class="v"><b>Profesionalismo</b><span>Representamos lo que somos.</span></div>
       <div class="v"><b>Confianza</b><span>Construimos relaciones con honestidad.</span></div>
       <div class="v"><b>Comunidad</b><span>Crecemos juntos cada día.</span></div>
@@ -463,48 +417,48 @@ footer.demo .wrap{display:grid;gap:6px}
 <!-- ============ ACEPTAS ============ -->
 <section>
   <div class="wrap">
-    <p class="eyebrow rv"><span class="pg">R1</span> Compromiso</p>
-    <h2 class="display rv">Al ser embajador,<br><span class="b">aceptas:</span></h2>
-    <ul class="accepts rv">
+    <p class="eyebrow"><span class="pg">R1</span> Compromiso</p>
+    <h2 class="display">Al ser embajador,<br><span class="b">aceptas:</span></h2>
+    <ul class="accepts">
       <li>Seguir las reglas del programa.</li>
       <li>Representar a Proteínas Colombia de manera responsable.</li>
       <li>Actuar siempre con honestidad y profesionalismo.</li>
       <li>Usar tu código de forma correcta y personal.</li>
       <li>Respetar a nuestros clientes, a otros embajadores y a la marca.</li>
     </ul>
-    <p class="lede rv"><strong>Juntos construimos una comunidad más fuerte.</strong></p>
+    <p class="lede"><strong>Juntos construimos una comunidad más fuerte.</strong></p>
   </div>
 </section>
 
 <!-- ============ 12 REGLAS ============ -->
 <section>
   <div class="wrap">
-    <p class="eyebrow rv"><span class="pg">R2</span> Reglamento</p>
-    <h2 class="display rv">12 reglas <span class="b">clave</span></h2>
-    <p class="lede rv">Para ser un embajador Proteínas Colombia Team. Toca cada regla para leerla.</p>
+    <p class="eyebrow"><span class="pg">R2</span> Reglamento</p>
+    <h2 class="display">12 reglas <span class="b">clave</span></h2>
+    <p class="lede">Para ser un embajador Proteínas Colombia Team. Toca cada regla para leerla.</p>
 
-    <div class="rulesmeta rv">
+    <div class="rulesmeta">
       <span>Tu lectura</span>
       <span class="count" id="cuenta">0 / 12 leídas</span>
     </div>
-    <div class="rulebar rv"><i id="cuentabar"></i></div>
+    <div class="rulebar"><i id="cuentabar"></i></div>
 
     <div class="rules" id="rules">
-      <details class="rule rv"><summary><span class="n">01</span><h3>Código personal</h3></summary><p>Tu código es único e intransferible. No lo compartas ni uses el de otros embajadores.</p></details>
-      <details class="rule rv"><summary><span class="n">02</span><h3>Registro de ventas</h3></summary><p>Una venta solo se acredita cuando el cliente menciona tu código o indica que fue referido por ti.</p></details>
-      <details class="rule rv"><summary><span class="n">03</span><h3>Comisiones</h3></summary><p>Las comisiones se calculan sobre el valor de los productos, después de descuentos y sin incluir el envío.</p></details>
-      <details class="rule rv"><summary><span class="n">04</span><h3>Pago de comisiones</h3></summary><p>Las comisiones se pagan mensualmente por ventas efectivamente entregadas y pagadas.</p></details>
-      <details class="rule rv"><summary><span class="n">05</span><h3>Devoluciones</h3></summary><p>Ventas canceladas, devueltas o no pagadas no generan comisión. Si ya fue pagada, se descontará del siguiente periodo.</p></details>
-      <details class="rule rv"><summary><span class="n">06</span><h3>Precios</h3></summary><p>No puedes modificar precios, crear promociones ni ofrecer descuentos personales. Usa solo promociones oficiales.</p></details>
-      <details class="rule rv"><summary><span class="n">07</span><h3>Uso de la marca</h3></summary><p>Usa el logo y el material oficial correctamente. No modifiques ni crees contenidos engañosos.</p></details>
-      <details class="rule rv"><summary><span class="n">08</span><h3>Publicidad</h3></summary><p>No hagas afirmaciones falsas ni prometas resultados. Habla con la verdad y responsabilidad siempre.</p></details>
-      <details class="rule rv"><summary><span class="n">09</span><h3>Conducta</h3></summary><p>Sé respetuoso, honesto y profesional. No desacredites a otras marcas ni generes conflictos.</p></details>
-      <details class="rule rv"><summary><span class="n">10</span><h3>Confidencialidad</h3></summary><p>No compartas listas de precios, condiciones comerciales, comisiones ni información del programa.</p></details>
-      <details class="rule rv"><summary><span class="n">11</span><h3>Actualizaciones</h3></summary><p>Proteínas Colombia podrá modificar comisiones, beneficios, promociones y reglas cuando sea necesario.</p></details>
-      <details class="rule rv"><summary><span class="n">12</span><h3>Pérdida de estatus</h3></summary><p>Incumplir el reglamento puede resultar en la suspensión o cancelación del programa sin pago de comisiones pendientes.</p></details>
+      <details class="rule"><summary><span class="n">01</span><h3>Código personal</h3></summary><p>Tu código es único e intransferible. No lo compartas ni uses el de otros embajadores.</p></details>
+      <details class="rule"><summary><span class="n">02</span><h3>Registro de ventas</h3></summary><p>Una venta solo se acredita cuando el cliente menciona tu código o indica que fue referido por ti.</p></details>
+      <details class="rule"><summary><span class="n">03</span><h3>Comisiones</h3></summary><p>Las comisiones se calculan sobre el valor de los productos, después de descuentos y sin incluir el envío.</p></details>
+      <details class="rule"><summary><span class="n">04</span><h3>Pago de comisiones</h3></summary><p>Las comisiones se pagan mensualmente por ventas efectivamente entregadas y pagadas.</p></details>
+      <details class="rule"><summary><span class="n">05</span><h3>Devoluciones</h3></summary><p>Ventas canceladas, devueltas o no pagadas no generan comisión. Si ya fue pagada, se descontará del siguiente periodo.</p></details>
+      <details class="rule"><summary><span class="n">06</span><h3>Precios</h3></summary><p>No puedes modificar precios, crear promociones ni ofrecer descuentos personales. Usa solo promociones oficiales.</p></details>
+      <details class="rule"><summary><span class="n">07</span><h3>Uso de la marca</h3></summary><p>Usa el logo y el material oficial correctamente. No modifiques ni crees contenidos engañosos.</p></details>
+      <details class="rule"><summary><span class="n">08</span><h3>Publicidad</h3></summary><p>No hagas afirmaciones falsas ni prometas resultados. Habla con la verdad y responsabilidad siempre.</p></details>
+      <details class="rule"><summary><span class="n">09</span><h3>Conducta</h3></summary><p>Sé respetuoso, honesto y profesional. No desacredites a otras marcas ni generes conflictos.</p></details>
+      <details class="rule"><summary><span class="n">10</span><h3>Confidencialidad</h3></summary><p>No compartas listas de precios, condiciones comerciales, comisiones ni información del programa.</p></details>
+      <details class="rule"><summary><span class="n">11</span><h3>Actualizaciones</h3></summary><p>Proteínas Colombia podrá modificar comisiones, beneficios, promociones y reglas cuando sea necesario.</p></details>
+      <details class="rule"><summary><span class="n">12</span><h3>Pérdida de estatus</h3></summary><p>Incumplir el reglamento puede resultar en la suspensión o cancelación del programa sin pago de comisiones pendientes.</p></details>
     </div>
 
-    <div class="recuerda rv">
+    <div class="recuerda">
       <span class="w">!</span>
       <div>
         <b>Recuerda</b>
@@ -517,15 +471,15 @@ footer.demo .wrap{display:grid;gap:6px}
 <!-- ============ CIERRE — pág. 10 ============ -->
 <section class="final flush">
   <div class="wrap">
-    <p class="eyebrow rv"><span class="pg">10</span> Bienvenido al Team</p>
-    <h2 class="display big rv">Entrenar.<br>Crecer.<br><span class="b">Superarse.</span></h2>
-    <p class="lede rv">Gracias por ser parte de <strong>Proteínas Colombia Team</strong>.</p>
-    <div class="ctas rv">
+    <p class="eyebrow"><span class="pg">10</span> Bienvenido al Team</p>
+    <h2 class="display big">Entrenar.<br>Crecer.<br><span class="b">Superarse.</span></h2>
+    <p class="lede">Gracias por ser parte de <strong>Proteínas Colombia Team</strong>.</p>
+    <div class="ctas">
       <a class="btn wa" href="https://wa.me/573246858586?text=Hola%2C%20soy%20nuevo%20embajador%20del%20Team%20%F0%9F%92%AA" target="_blank" rel="noopener">WhatsApp del Team</a>
       <a class="btn ig" href="https://instagram.com/proteinas_colombia" target="_blank" rel="noopener">@proteinas_colombia</a>
     </div>
-    <div class="tricolor rv"><i></i><i></i><i></i></div>
-    <div class="finfo rv">
+    <div class="tricolor"><i></i><i></i><i></i></div>
+    <div class="finfo">
       <span>Envíos nacionales</span><span>Calidad garantizada</span><span>+57 324 685 8586</span>
     </div>
   </div>
@@ -541,21 +495,6 @@ footer.demo .wrap{display:grid;gap:6px}
 <script>
 (function(){
   "use strict";
-
-  // barra de progreso de scroll
-  var prog=document.getElementById("prog");
-  function onScroll(){
-    var h=document.documentElement;
-    var max=h.scrollHeight-h.clientHeight;
-    prog.style.width=(max>0?(h.scrollTop/max)*100:0)+"%";
-  }
-  addEventListener("scroll",onScroll,{passive:true});onScroll();
-
-  // revelado al hacer scroll
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
-  },{threshold:.12,rootMargin:"0px 0px -40px 0px"});
-  document.querySelectorAll(".rv").forEach(function(el){io.observe(el);});
 
   // demo del código de embajador
   var input=document.getElementById("nombre"), out=document.getElementById("codigo");
