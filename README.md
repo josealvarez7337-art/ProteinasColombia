@@ -1,32 +1,32 @@
 # Proteínas Colombia Team — Onboarding web para embajadores
 
-Material para el programa de embajadores de Proteínas Colombia, basado en
-los dos documentos que envió la tienda (Kit de Bienvenida y Reglamento
-Oficial). El entregable acordado es la versión web; sin fotografías, por
-decisión del cliente.
+Sitio web del programa de embajadores de Proteínas Colombia: Kit de
+Bienvenida y Reglamento Oficial. Versión final aprobada por el cliente
+(sin fotografías, diseño plano, interactividad conservada).
 
 ## Contenido
 
 | Archivo | Qué es |
 |---|---|
-| `web/kit-embajadores.html` | Kit de Bienvenida: página autocontenida (fuentes incrustadas) con el generador de código de embajador y botones de WhatsApp e Instagram. |
-| `web/reglamento.html` | Reglamento Oficial: página independiente con las 12 reglas desplegables, contador de lectura y contacto propio. |
+| `web/index.html` | Kit de Bienvenida (página principal): generador de código de embajador, botones de WhatsApp e Instagram y enlace al reglamento. |
+| `web/reglamento.html` | Reglamento Oficial: las 12 reglas desplegables con contador de lectura, contacto y enlace de regreso al kit. |
 
-Ambas páginas son estáticas y autocontenidas — se publican copiando los
-archivos a cualquier hosting (Netlify, Vercel, Cloudflare Pages) sin
-dependencias externas.
+Ambas páginas son estáticas y 100 % autocontenidas (fuentes incrustadas,
+sin dependencias externas). Incluyen `noindex` para no aparecer en
+buscadores, `viewport` para móvil y favicon propio.
 
-## Antes de publicar la versión final
+## Cómo publicar (Netlify, gratis)
 
-- Agregar `<meta name="robots" content="noindex">` para que el link no
-  aparezca en buscadores (solo lo conoce quien lo recibe).
-- Quitar el pie «Boceto de diseño — versión interactiva».
-- Opcional: botón «Lee el reglamento» al final del Kit apuntando a
-  `reglamento.html` (enlace relativo, funciona una vez alojadas juntas).
+1. Crear cuenta en netlify.com (con el correo del diseñador, que mantiene el sitio).
+2. En "Sites", arrastrar la carpeta `web/` completa (o el ZIP con ambos archivos).
+3. En "Site configuration → Change site name", poner `proteinascolombiateam`
+   → queda publicado en `https://proteinascolombiateam.netlify.app`.
+4. El Reglamento queda automáticamente en `/reglamento.html`.
 
-## Pendiente con la tienda
+Para actualizar (cambio de reglas, comisiones, etc.): editar el archivo
+correspondiente y volver a arrastrar la carpeta — el link no cambia.
 
-- Fecha de entrega esperada.
+## Acuerdo de mantenimiento
 
-Las versiones anteriores en PDF de diapositivas (y su fuente HTML/CSS)
-están disponibles en el historial de git si se llegaran a necesitar.
+Actualizaciones de contenido se cobran por ronda de cambios, con entrega
+en 48 horas, según lo acordado con el cliente.
