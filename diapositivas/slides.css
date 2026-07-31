@@ -69,14 +69,6 @@ h2.display{font-size:44px}
 .lede{color:var(--muted);font-size:16px;line-height:1.55;margin-top:18px}
 .lede strong{color:var(--paper);font-weight:600}
 
-/* marcador de foto — igual que el boceto original */
-.foto{position:relative;display:flex;align-items:center;justify-content:center;
-  border:1px dashed var(--line-2);color:var(--muted);
-  font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-  background:
-    repeating-linear-gradient(115deg,transparent 0 20px,rgba(96,146,255,.05) 20px 21px),
-    linear-gradient(160deg,#0A1322,#070D1A);
-  text-align:center;padding:10px}
 
 /* pie de página de cada diapositiva */
 .foot{margin-top:auto;border-top:1px solid var(--line);
@@ -117,9 +109,9 @@ h2.display{font-size:44px}
 .ben span{font-size:12px;color:var(--muted);line-height:1.45;display:block}
 
 .starts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
-.start{border:1px solid var(--line);background:var(--panel)}
-.start .foto{height:92px;border:none;border-bottom:1px dashed var(--line-2)}
-.start .t{padding:12px 13px 14px;display:flex;gap:10px;align-items:baseline}
+.start{border:1px solid var(--line);background:var(--panel);position:relative}
+.start::before{content:"";position:absolute;left:0;top:0;width:30px;height:3px;background:var(--blue)}
+.start .t{padding:18px 15px 20px;display:flex;gap:10px;align-items:baseline}
 .start .t .n{font-family:var(--display);color:var(--blue);font-size:20px;
   transform:skewX(-7deg);font-variant-numeric:tabular-nums}
 .start .t b{font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;line-height:1.45}

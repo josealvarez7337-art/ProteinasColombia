@@ -10,7 +10,7 @@ Reglamento Oficial).
 |---|---|
 | `entregables/` | Los dos PDF de diapositivas verticales (540×960, formato celular/WhatsApp): Kit de Bienvenida (10 diapositivas) y Reglamento Oficial (8 diapositivas). |
 | `diapositivas/` | Fuente de los PDF: HTML + CSS compartido (`slides.css`) con las fuentes Anton y Barlow en `fuentes/`. |
-| `web/` | Versión web interactiva (un solo archivo, fuentes incrustadas): generador de código de embajador, reglamento con contador de lectura y botón de WhatsApp. |
+| `web/` | Versión web (dos archivos independientes, fuentes incrustadas): `kit-embajadores.html` con el generador de código, y `reglamento.html` con las 12 reglas desplegables y contador de lectura. |
 
 ## Cómo regenerar los PDF
 
@@ -26,5 +26,5 @@ await page.pdf(path="salida.pdf", width="540px", height="960px",
 
 ## Pendientes con la tienda
 
-- Fotos propias (los espacios marcados «FOTO — …» son marcadores intencionales).
+- El cliente decidió el material sin fotografías; los diseños son tipográficos.
 - Fecha de entrega esperada.
