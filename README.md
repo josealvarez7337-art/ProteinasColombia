@@ -14,7 +14,7 @@ Bienvenida y Reglamento Oficial. Versión final aprobada por el cliente
 
 Ambas páginas son estáticas y 100 % autocontenidas (fuentes incrustadas,
 sin dependencias externas). Incluyen `noindex` para no aparecer en
-buscadores, `viewport` para móvil y favicon propio.
+buscadores, `viewport` para móvil y el isotipo de la marca como favicon.
 
 ## Cómo publicar (Netlify, gratis)
 
@@ -32,7 +32,9 @@ correspondiente y volver a arrastrar la carpeta — el link no cambia.
 | Archivo | Qué es |
 |---|---|
 | `brand/logo-original.jpg` | Logo tal como lo entregó la tienda (JPEG con fondo oscuro). |
-| `brand/logo-master-2x.png` | Máster reconstruido: fondo transparente, blanco puro sin ruido de compresión, 1878×400. Es la versión incrustada en las páginas y la que debe usarse en piezas futuras. |
+| `brand/logo-master-2x.png` | Máster reconstruido: fondo transparente, blanco puro sin ruido de compresión, 1878×400. Es la versión incrustada en el encabezado de las páginas. |
+| `brand/isotipo.svg` | Isotipo (círculo + rayo) redibujado como vector, fondo transparente. Va incrustado como favicon en ambas páginas. |
+| `brand/isotipo-1024.png` | El isotipo rasterizado a 1024 px, por si se necesita en formatos que no admiten SVG. |
 
 ## Acuerdo de mantenimiento
 
