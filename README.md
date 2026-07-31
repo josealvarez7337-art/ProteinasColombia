@@ -1,30 +1,32 @@
-# Proteínas Colombia Team — Bocetos de onboarding para embajadores
+# Proteínas Colombia Team — Onboarding web para embajadores
 
-Material de propuesta para el programa de embajadores de Proteínas Colombia,
-basado en los dos documentos que envió la tienda (Kit de Bienvenida y
-Reglamento Oficial).
+Material para el programa de embajadores de Proteínas Colombia, basado en
+los dos documentos que envió la tienda (Kit de Bienvenida y Reglamento
+Oficial). El entregable acordado es la versión web; sin fotografías, por
+decisión del cliente.
 
 ## Contenido
 
-| Carpeta | Qué hay |
+| Archivo | Qué es |
 |---|---|
-| `entregables/` | Los dos PDF de diapositivas verticales (540×960, formato celular/WhatsApp): Kit de Bienvenida (10 diapositivas) y Reglamento Oficial (8 diapositivas). |
-| `diapositivas/` | Fuente de los PDF: HTML + CSS compartido (`slides.css`) con las fuentes Anton y Barlow en `fuentes/`. |
-| `web/` | Versión web (dos archivos independientes, fuentes incrustadas): `kit-embajadores.html` con el generador de código, y `reglamento.html` con las 12 reglas desplegables y contador de lectura. |
+| `web/kit-embajadores.html` | Kit de Bienvenida: página autocontenida (fuentes incrustadas) con el generador de código de embajador y botones de WhatsApp e Instagram. |
+| `web/reglamento.html` | Reglamento Oficial: página independiente con las 12 reglas desplegables, contador de lectura y contacto propio. |
 
-## Cómo regenerar los PDF
+Ambas páginas son estáticas y autocontenidas — se publican copiando los
+archivos a cualquier hosting (Netlify, Vercel, Cloudflare Pages) sin
+dependencias externas.
 
-Cada archivo HTML de `diapositivas/` se imprime a PDF con Chromium sin
-márgenes, página de 540×960 px y fondos activados:
+## Antes de publicar la versión final
 
-```python
-await page.goto("file://.../kit-slides.html")
-await page.pdf(path="salida.pdf", width="540px", height="960px",
-               print_background=True,
-               margin={"top": "0", "right": "0", "bottom": "0", "left": "0"})
-```
+- Agregar `<meta name="robots" content="noindex">` para que el link no
+  aparezca en buscadores (solo lo conoce quien lo recibe).
+- Quitar el pie «Boceto de diseño — versión interactiva».
+- Opcional: botón «Lee el reglamento» al final del Kit apuntando a
+  `reglamento.html` (enlace relativo, funciona una vez alojadas juntas).
 
-## Pendientes con la tienda
+## Pendiente con la tienda
 
-- El cliente decidió el material sin fotografías; los diseños son tipográficos.
 - Fecha de entrega esperada.
+
+Las versiones anteriores en PDF de diapositivas (y su fuente HTML/CSS)
+están disponibles en el historial de git si se llegaran a necesitar.
