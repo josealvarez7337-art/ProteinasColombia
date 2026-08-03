@@ -20,14 +20,36 @@ entre la versión clara y la oscura según el tema del navegador (más
 
 ## Cómo publicar (Netlify, gratis)
 
-1. Crear cuenta en netlify.com (con el correo del diseñador, que mantiene el sitio).
-2. En "Sites", arrastrar la carpeta `web/` completa (o el ZIP con ambos archivos).
-3. En "Site configuration → Change site name", poner `proteinascolombiateam`
-   → queda publicado en `https://proteinascolombiateam.netlify.app`.
-4. El Reglamento queda automáticamente en `/reglamento.html`.
+### Opción A — arrastrar el ZIP (lo más rápido, desde un computador)
 
-Para actualizar (cambio de reglas, comisiones, etc.): editar el archivo
-correspondiente y volver a arrastrar la carpeta — el link no cambia.
+1. Entrar a **app.netlify.com/drop** y crear la cuenta (con el correo del
+   diseñador, que es quien mantiene el sitio).
+2. Arrastrar el ZIP del sitio al recuadro punteado. Netlify lo descomprime
+   solo; los tres archivos deben quedar en la raíz del ZIP, sin carpeta
+   que los envuelva.
+3. Queda publicado en una dirección aleatoria del tipo
+   `brave-panda-4821.netlify.app`. Para cambiarla:
+   **Site configuration → General → Change site name** → escribir
+   `proteinascolombiateam` → queda
+   `https://proteinascolombiateam.netlify.app`.
+4. El Reglamento queda en `/reglamento.html` y el catálogo en
+   `/catalogo.pdf`. El certificado HTTPS lo pone Netlify solo.
+
+Para actualizar: **Deploys → Drag and drop your site folder** y soltar el
+ZIP nuevo. La dirección no cambia, así que los embajadores que ya tienen
+el enlace ven la versión nueva sin que haya que reenviarles nada.
+
+### Opción B — conectar el repositorio (se actualiza solo)
+
+Sirve también desde el celular y evita volver a arrastrar archivos: en
+**Add new site → Import an existing project → GitHub**, elegir este
+repositorio y configurar
+
+- Branch: la rama de trabajo
+- Build command: *(vacío)*
+- Publish directory: `web`
+
+Con eso, cada cambio que se suba al repositorio se publica solo.
 
 ## Marca
 
