@@ -8,8 +8,8 @@ Bienvenida y Reglamento Oficial. Versión final aprobada por el cliente
 
 | Archivo | Qué es |
 |---|---|
-| `web/index.html` | Kit de Bienvenida (página principal): generador de código de embajador, botones de WhatsApp e Instagram y enlace al reglamento. |
-| `web/reglamento.html` | Reglamento Oficial: las 12 reglas desplegables con contador de lectura, contacto y enlace de regreso al kit. |
+| `web/index.html` | Kit de Bienvenida: generador de código de embajador, botones de WhatsApp e Instagram y enlace al reglamento. Queda publicado en la raíz del sitio. |
+| `web/reglamento/index.html` | Reglamento Oficial: las 12 reglas desplegables con contador de lectura, contacto y enlace de regreso al kit. Queda publicado en `/reglamento`. |
 | `web/catalogo.pdf` | Catálogo de productos de la tienda (9 páginas). Se publica junto al sitio; el botón «Catálogo de productos» del cierre del Kit lo abre. |
 
 Ambas páginas son estáticas y 100 % autocontenidas (fuentes incrustadas,
@@ -32,8 +32,18 @@ entre la versión clara y la oscura según el tema del navegador (más
    **Site configuration → General → Change site name** → escribir
    `proteinascolombiateam` → queda
    `https://proteinascolombiateam.netlify.app`.
-4. El Reglamento queda en `/reglamento.html` y el catálogo en
-   `/catalogo.pdf`. El certificado HTTPS lo pone Netlify solo.
+4. El certificado HTTPS lo pone Netlify solo.
+
+Los dos documentos quedan como enlaces independientes, para enviarlos por
+separado:
+
+| Documento | Enlace |
+|---|---|
+| Kit de Bienvenida | `https://proteinascolombiateam.netlify.app` |
+| Reglamento Oficial | `https://proteinascolombiateam.netlify.app/reglamento` |
+
+El catálogo queda en `/catalogo.pdf`, al que llegan los botones de ambas
+páginas.
 
 Para actualizar: **Deploys → Drag and drop your site folder** y soltar el
 ZIP nuevo. La dirección no cambia, así que los embajadores que ya tienen
